@@ -1,0 +1,46 @@
+<core:View
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	controllerName="sap.training.exc11.types.view.Main" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	
+	<f:SimpleForm>
+		<f:content>
+		
+			<Label text="Id der Fluggesellschaft"/>
+			<Input value="{ path: '/flight/carrId',
+                    		type: 'sap.ui.model.type.String',
+                    		constraints: {minLength : 1, maxLength : 3}
+                    	  }" /> 
+                    
+            <Label text="Id der Flugverbindung"/>
+			<Input value="{ path: '/flight/connId',
+                            type: 'sap.training.exc11.types.type.ConnId'
+                          }" />
+                             
+        	<Label text="Flugdatum"/>
+			<DatePicker value="{ path: '/flight/fldate',
+                            type: 'sap.ui.model.type.Date',
+                            formatOptions: { source: {pattern: 'yyyy/MM/dd'}, style: 'long' },
+                            constraints: {minimum : '2016/01/01'}
+                          }" />
+                            
+			<Label text="Preis"/>
+			<Input value="{ path: '/flight/price',
+                    		type: 'sap.ui.model.type.Float',
+                    		formatOptions: {minFractionDigits: 2, maxFractionDigits: 2},
+                    		constraints: {minimum: 0}
+                    	  }" />
+				
+			<Label text="Belegte Sitze"/>
+			<Input value="{ path: '/flight/seatsOcc',
+            				type: 'sap.ui.model.type.Integer',
+	                		constraints: {minimum: 0, maximum: 280}
+	                	  }" />
+	
+		</f:content>
+	</f:SimpleForm>
+
+</core:View>
